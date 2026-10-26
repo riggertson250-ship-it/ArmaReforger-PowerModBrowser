@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reforger Workshop Power Browser
 // @namespace    tytan.reforger
-// @version      1.10
+// @version      1.11
 // @description  Dense, filterable, sortable browser for the Arma Reforger Workshop with hover summaries and server-config-compatible mod collections
 // @match        https://reforger.armaplatform.com/workshop*
 // @grant        none
@@ -16,8 +16,8 @@
     'PROPS', 'STRUCTURES', 'AI', 'COMPOSITIONS', 'GAMEMASTER', 'CREATURES', 'MISC', 'TESTDEV'];
   const PER_PAGE = 16;
   const LS = 'pb_settings_v1';
-  const VERSION = (typeof GM_info !== 'undefined' && GM_info.script && GM_info.script.version) || '1.10';
-  const COFFEE_URL = ''; // set to a "buy me a coffee" page later; while empty the button plays an easter egg
+  const VERSION = (typeof GM_info !== 'undefined' && GM_info.script && GM_info.script.version) || '1.11';
+  const COFFEE_URL = 'https://ko-fi.com/tytannium'; // support page; if emptied, the button plays a joke easter egg instead
   const LSC = 'pb_collections_v1';
   const DESC_LINES = 5;
 
@@ -346,7 +346,7 @@
     </div>
   </div>
   <span class="sp"></span>
-  <button id="pb-coffee" class="cof" aria-label="Buy me a coffee" data-tip="Buy me a coffee|Support Power Browser's development. (Coming soon)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path class="stm" d="M8 2.5c-.8 1 .8 1.8 0 3M12 2.5c-.8 1 .8 1.8 0 3"/><path d="M4 8.5h12v5.5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M3 21.5h14"/></svg></button>
+  <button id="pb-coffee" class="cof" aria-label="Buy me a coffee on Ko-fi" data-tip="Buy me a coffee|Support Power Browser's development on Ko-fi. Opens in a new tab."><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path class="stm" d="M8 2.5c-.8 1 .8 1.8 0 3M12 2.5c-.8 1 .8 1.8 0 3"/><path d="M4 8.5h12v5.5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M3 21.5h14"/></svg></button>
   <span class="egg" aria-label="Made by Tytan"><span class="st">&#9733;</span><span class="mb">Made by Tytan</span></span>
 </header>
 <div class="tagbar" id="pb-tagbar">
@@ -1341,7 +1341,7 @@
     el.close.classList.add('off'); hideRibbonTip();
     setTimeout(() => { el.close.classList.remove('off'); close(); }, 200);
   };
-  // Buy me a coffee: opens COFFEE_URL once set; until then, an easter egg
+  // Buy me a coffee: bean burst + thank-you, then opens Ko-fi (joke lines only if COFFEE_URL is empty)
   const COFFEE_LINES = [
     'Brewing... the coffee fund is still in Workshop review.',
     'Missing dependency: Caffeine. Add to collection?',
@@ -1351,7 +1351,7 @@
   ];
   let coffeeN = 0;
   $('coffee').onclick = () => {
-    if (COFFEE_URL) { window.open(COFFEE_URL, '_blank', 'noopener'); return; }
+    if (COFFEE_URL) window.open(COFFEE_URL, '_blank', 'noopener'); // open first so popup blockers allow it
     hideRibbonTip();
     const r = $('coffee').getBoundingClientRect(), cx = r.left + r.width / 2;
     for (let i = 0; i < 7; i++) {
@@ -1364,7 +1364,7 @@
     }
     document.querySelectorAll('.pb-cofmsg').forEach(m => m.remove());
     const m = document.createElement('div'); m.className = 'pb-cofmsg';
-    m.textContent = COFFEE_LINES[coffeeN++ % COFFEE_LINES.length];
+    m.textContent = COFFEE_URL ? 'Opening Ko-fi. Thanks for the support!' : COFFEE_LINES[coffeeN++ % COFFEE_LINES.length];
     document.body.appendChild(m);
     m.style.top = (r.bottom + 8) + 'px';
     m.style.left = Math.max(8, Math.min(r.right - m.offsetWidth, innerWidth - m.offsetWidth - 8)) + 'px';
