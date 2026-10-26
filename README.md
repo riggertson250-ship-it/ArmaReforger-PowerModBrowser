@@ -5,7 +5,7 @@ A free add-on that makes the **Arma Reforger Workshop website** much easier to b
 The official Workshop only shows 16 mods per page with very few filters. Power Browser adds a full-screen browser on top of it so you can filter by tags, sort however you like, see hundreds of mods at once, and build mod lists ("collections") you can paste straight into a server.
 
 > Works on: https://reforger.armaplatform.com/workshop
-> Current version: **1.10**
+> Current version: **1.11**
 
 ---
 
@@ -38,7 +38,7 @@ The official Workshop only shows 16 mods per page with very few filters. Power B
 
 ## Download
 
-Download the Power Browser Javascript: [reforger-workshop-power-browser.user.js](https://github.com/user-attachments/files/33991272/reforger-workshop-power-browser.user.js)
+### Download the Javascript file here: [reforger-workshop-power-browser.user.js](https://github.com/user-attachments/files/33991528/reforger-workshop-power-browser.user.js)
 
 
 Install Tampermonkey first (step 1 below), then click the link. Tampermonkey will open and show an **Install** button.
@@ -53,7 +53,7 @@ You need a free browser extension called **Tampermonkey**. It runs small scripts
    - Chrome / Edge / Brave / Opera: https://www.tampermonkey.net
    - Firefox: https://addons.mozilla.org/firefox/addon/tampermonkey/
 2. **Install Power Browser.** Pick one:
-   - **Easy way:** click the [Download link](#download) above (or open the script file in this repo and click **Raw**). Tampermonkey will show an **Install** button. Click it.
+   - **Easy way:** click the download link above (or open the script file in this repo and click **Raw**). Tampermonkey will show an **Install** button. Click it.
    - **Manual way:** open the Tampermonkey dashboard, click the **+** tab to create a new script, delete everything in it, paste in the full contents of `reforger-workshop-power-browser.user.js`, and press **Ctrl + S** to save.
 3. **Open the Workshop:** https://reforger.armaplatform.com/workshop
 4. Click the green **Power Browse** button in the bottom right corner.
@@ -88,7 +88,7 @@ Tip: hover over any button in the top bar to see what it does.
 | **Fetch** | What to download from the Workshop: search, server sort, Batch or Pages mode, how many |
 | **Refine** | Filters and sorting for what is already loaded. Does not download anything new |
 | **View** | Grid or Table, card size, and Collection view |
-| **☕** | Coming soon. Click it anyway |
+| **☕** | Opens my [Ko-fi page](https://ko-fi.com/tytannium) if you'd like to support the project |
 
 Click the words **Fetch**, **Refine** or **View** to shrink that group and save space. Green words mean the group is open.
 
@@ -180,9 +180,19 @@ Ideas and feedback for the roadmap are welcome in the Issues tab.
 - It reads the Workshop's own page data (the `/_next/data/...` URLs the site uses). If Bohemia changes their site, those calls may need updating.
 - Settings live in `localStorage` under `pb_settings_v1`, collections under `pb_collections_v1`
 
-To change the coffee button into a real link, set `COFFEE_URL` near the top of the script.
+The coffee button's link is set by `COFFEE_URL` near the top of the script.
 
 Bug reports and ideas are welcome in the Issues tab.
+
+---
+
+## Support the project
+
+Power Browser is free. If it saved you some time and you'd like to say thanks, you can buy me a coffee:
+
+[![Support me on Ko-fi](https://img.shields.io/badge/Ko--fi-Buy%20me%20a%20coffee-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/tytannium)
+
+You can also click the ☕ button in the Power Browser top bar. Bug reports, ideas and sharing the tool with your unit help just as much.
 
 ---
 
