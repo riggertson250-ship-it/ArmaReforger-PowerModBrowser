@@ -38,14 +38,14 @@ The official Workshop only shows 16 mods per page with very few filters. Power B
 
 ## Download
 
-<!-- Replace LINK_HERE with the link to the script file (for example the Raw file link or a GitHub Release asset). -->
-### ⬇️ [Download Power Browser (reforger-workshop-power-browser.user.js)]([Uploading reforger-workshop-power-browser.user.js…])
+Download the Power Browser Javascript: [reforger-workshop-power-browser.user.js](https://github.com/user-attachments/files/33991272/reforger-workshop-power-browser.user.js)
+
 
 Install Tampermonkey first (step 1 below), then click the link. Tampermonkey will open and show an **Install** button.
 
 ---
 
-## Install (about 2 minutes)
+## Install
 
 You need a free browser extension called **Tampermonkey**. It runs small scripts like this one on websites.
 
